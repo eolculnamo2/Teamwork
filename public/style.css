@@ -1,3 +1,11 @@
-h1{
-  color: blue;
+nav{
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  background-color:#81ff5e;
+}
+.title{
+  margin-top: 20%;
 }
