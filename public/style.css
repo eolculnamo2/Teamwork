@@ -3,7 +3,6 @@ nav{
   left: 0;
   height: 100px;
   width: 100%;
-  position: fixed;
   background-color:#81ff5e;
 }
 input{
@@ -19,8 +18,14 @@ input:focus {
   box-shadow: 5px 5px 2px black;
 }
 .title{
-  margin-top: 15%;
+  margin-top: 5%;
   font-family: 'Raleway', sans-serif;
+}
+.titleNav{
+  display: inline-block;
+  margin-top: 1%;
+  font-family: 'Raleway', sans-serif;
+  padding: 20px;
 }
 .loginButton{
   border: 0px;
@@ -31,4 +36,25 @@ input:focus {
   margin-left: 3px;
   margin-right: 3px;
   width: 100px;
+}
+.features{
+  margin-top: 8%;
+}
+.feature{
+  height: 50vh;
+}
+.clipart{
+  height: 10vh;
+}
+.homeDivider{
+  border: 1px solid grey;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .clipart{
+    height: 30vh;
+  }
+  .features{
+    margin-top: 7vh;
+  }
 }

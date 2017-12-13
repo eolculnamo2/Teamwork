@@ -51,7 +51,7 @@ var Login = React.createClass({
           Back
         </button>
         <button className = "loginButton" type = "submit">
-          Login
+          Register
         </button>
         </form>
       </div>)
