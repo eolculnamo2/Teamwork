@@ -22418,7 +22418,7 @@ var Login = React.createClass({displayName: "Login",
           "Back"
         ), 
         React.createElement("button", {className: "loginButton", type: "submit"}, 
-          "Login"
+          "Register"
         )
         )
       ))
