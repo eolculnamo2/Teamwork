@@ -9,7 +9,8 @@ var team = new Schema({
   username: String,
   password: String,
   teamName: String,
-  teammates: Array,
+  //teammates: Array,
+  authority: Boolean,
   schedules: Array
 })
 

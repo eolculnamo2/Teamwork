@@ -23,23 +23,52 @@ passport.use(new LocalStrategy(Team.authenticate()));
 passport.serializeUser(Team.serializeUser());
 passport.deserializeUser(Team.deserializeUser());
 
+//Register New Team and Team Leader
 router.post('/newTeam', (req, res)=>{
   
   if(req.body.password === req.body.confirmPassword){
-    Team.register(new Team({ username : req.body.username }), req.body.password, (err, account)=>{
+    Team.register(new Team({ username : req.body.username, authority: true, teamName: req.body.teamName }), req.body.password, (err, account)=>{
         if (err) {
             console.log(err)
         }
         passport.authenticate('local')(req, res, ()=>{
-            //res.redirect('/dashboard');
-          res.send("logged in")
+            res.redirect('/dashboard');
         });
     });
   }
   else{
-    res.send("Passwords Do Not Match")
+    res.send("Passwords Do Not Match");
   }
 });
 
+//Register New Team Member
+router.post('/addTeamMember', (req, res)=>{
+  
+  if(req.body.password === req.body.confirmPassword){
+    Team.register(new Team({ username : req.body.username, authority: false, teamName: req.user.teamName }), req.body.password, (err, account)=>{
+        if (err) {
+            console.log(err)
+        }
+        passport.authenticate('local')(req, res, ()=>{
+            res.redirect('/dashboard');
+        });
+    });
+  }
+  else{
+    res.send("Passwords Do Not Match");
+  }
+});
+
+
+//Login
+router.post('/login', passport.authenticate('local'), function(req, res) {
+    res.redirect('/dashboard');
+});
+
+//Logout
+router.get('/logout',(req,res)=>{
+  req.logout();
+  res.redirect('/');
+})
 
 module.exports= router;
