@@ -1,3 +1,4 @@
+
 nav{
   top: 0;
   left: 0;
@@ -17,15 +18,45 @@ input:focus {
     outline:none;
   box-shadow: 5px 5px 2px black;
 }
+.center{
+  align-content: center;
+}
+.footer{
+  color: white;
+  position: absolute;
+  background-color: #656668;
+  min-height: 60px;
+  bottom:0;
+  width: 100%;
+  padding: 10px;
+}
+.githubLink, .githubLink:hover, .githubLink:active, .githubLink:visited{
+  color: white;
+}
+.wrapper{
+  min-height: 120vh;
+  position: relative;
+  padding-bottom: 100px;
+}
+.wrapper2{
+  min-height: 90vh;
+  position: relative;
+  padding-bottom: 90px;
+}
 .title{
   margin-top: 5%;
   font-family: 'Raleway', sans-serif;
 }
 .titleNav{
+  color: black;
   display: inline-block;
   margin-top: 1%;
   font-family: 'Raleway', sans-serif;
   padding: 20px;
+}
+.menuLink, .menuLink:hover, .menuLink:active, .menuLink:visited{
+  color: black;
+  margin-top: 1%;
 }
 .loginButton{
   border: 0px;
@@ -35,13 +66,15 @@ input:focus {
   display: inline;
   margin-left: 3px;
   margin-right: 3px;
-  width: 100px;
+  min-width: 100px;
 }
 .features{
   margin-top: 8%;
+ 
 }
 .feature{
-  height: 50vh;
+  min-height: 50vh;
+
 }
 .clipart{
   height: 10vh;
@@ -49,7 +82,32 @@ input:focus {
 .homeDivider{
   border: 1px solid grey;
 }
-
+.dashboardTitle{
+  padding: 20px;
+}
+.menu{
+  width: 20vw;
+  text-align: center;
+  border: 1px solid grey;
+  padding: 15px;
+  border-radius: 15px;
+  margin-left: 2%;
+  min-height: 60vh;
+}
+.leftSide{
+  vertical-align: top;
+  margin-left: 2%;
+  display: inline-block;
+}
+.rightSide{
+  padding: 20px;
+  margin-top: 3%;
+  display: inline-block;
+  border: 1px solid grey;
+  width: 70vw;
+  min-height: 70vh;
+  border-radius: 10px;
+}
 @media only screen and (max-device-width: 480px) {
   .clipart{
     height: 30vh;
