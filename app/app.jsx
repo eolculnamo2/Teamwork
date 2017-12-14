@@ -1,8 +1,9 @@
 var React = require('react');
-var ReactDOM = require('react-dom')
+var ReactDOM = require('react-dom');
 
-var Login = require('./components/authenticate')
-var TeamManager = require('./components/teammates')
+var Login = require('./components/authenticate');
+var TeamManager = require('./components/teammates');
+var Menu = require('./components/dashmenu');
 
 if(document.getElementById('app')){
    ReactDOM.render(
@@ -13,7 +14,7 @@ if(document.getElementById('app')){
 
 else if(document.getElementById('team')){
   ReactDOM.render(
-  <TeamManager />,
+      <TeamManager />,
   document.getElementById('team')
 )
 }
