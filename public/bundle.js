@@ -22508,7 +22508,7 @@ var Team = React.createClass({displayName: "Team",
     this.setState({team: x});
   },
   viewSchedules: function(){
-    return(React.createElement("h1", null, "HELLOOOOO"))
+    alert("Not yet made");
   },
   addTeamMember: function(){
     return(
@@ -22554,6 +22554,24 @@ module.exports = Team;
 var React = __webpack_require__(16);
 
 var Viewteam = React.createClass({displayName: "Viewteam",
+  getInitialState: function(){
+    return {profile: ""}
+  },
+  profileFilter: function(){
+    if(this.state.profile.length>0){
+    var profileView = teamVar.filter((user)=>{
+              return user.username == this.state.profile;
+            });
+  
+    
+    return(
+    React.createElement("div", null, 
+        React.createElement("h4", null, profileView[0].username), 
+          React.createElement("h4", null, profileView[0].profileInfo.phone), 
+        React.createElement("h4", null, profileView[0].profileInfo.email)
+      ))
+        }
+  },
   render: function(){
     return(
     React.createElement("div", null, 
@@ -22579,15 +22597,15 @@ var Viewteam = React.createClass({displayName: "Viewteam",
               
               return(
                 React.createElement("div", null, 
-              React.createElement("h4", null, 
+              React.createElement("h4", {className: "menuLink", onClick: ()=>{this.setState({profile: x.username})}}, 
                 x.username
               )
                   )
                 )
             })
-           
           ), 
-          React.createElement("div", {className: "col-md-4 center"}
+          React.createElement("div", {className: "col-md-4 center"}, 
+            this.profileFilter(this.state.profile)
           )
         )
       )
@@ -22630,8 +22648,8 @@ var Settings = React.createClass({displayName: "Settings",
          React.createElement("h3", null, 
          "Settings"
          ), 
-      React.createElement("form", {className: "center", method: "POST", action: "/updateProfile"}, React.createElement("br", null), 
-        React.createElement("input", {placeholder: "Contact Number", name: "contactNumber"}), React.createElement("br", null), 
+      React.createElement("form", {className: "center inline", method: "POST", action: "/updateProfile"}, React.createElement("br", null), 
+        React.createElement("input", {placeholder: "Contact Number", name: "phone"}), React.createElement("br", null), 
         React.createElement("input", {placeholder: "Email", name: "email"}), React.createElement("br", null), 
         React.createElement("input", {placeholder: "Address", name: "address"}), React.createElement("br", null), 
          React.createElement("button", {onClick: ()=>{this.setState({password:true})}, type: "button", className: "loginButton"}, 
@@ -22640,7 +22658,21 @@ var Settings = React.createClass({displayName: "Settings",
           React.createElement("button", {type: "submit", className: "loginButton"}, 
             "Submit Changes"
           )
-        )
+        ), 
+         
+        React.createElement("div", {className: "inline"}, 
+          React.createElement("h4", null, 
+         "Contact Number: ", profileInfoVar.phone
+         ), 
+          React.createElement("h4", null, 
+          "Email: ", profileInfoVar.email
+          ), 
+          React.createElement("h4", null, 
+          "Address: ", profileInfoVar.address
+          )
+         )
+         
+         
       ))
   },
   render: function(){

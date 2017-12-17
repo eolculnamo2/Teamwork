@@ -27,8 +27,8 @@ var Settings = React.createClass({
          <h3>
          Settings
          </h3>
-      <form className = "center" method = "POST" action = "/updateProfile"><br/>
-        <input placeholder = "Contact Number" name = "contactNumber" /><br/>
+      <form className = "center inline" method = "POST" action = "/updateProfile"><br/>
+        <input placeholder = "Contact Number" name = "phone" /><br/>
         <input placeholder = "Email" name = "email" /><br/>
         <input placeholder = "Address" name = "address" /><br/>
          <button onClick = {()=>{this.setState({password:true})}} type = "button" className = "loginButton">
@@ -38,6 +38,20 @@ var Settings = React.createClass({
             Submit Changes
           </button>
         </form>
+         
+        <div className = "inline">
+          <h4>
+         Contact Number: {profileInfoVar.phone}
+         </h4>
+          <h4>
+          Email: {profileInfoVar.email}
+          </h4>
+          <h4>
+          Address: {profileInfoVar.address}
+          </h4>
+         </div>
+         
+         
       </div>)
   },
   render: function(){

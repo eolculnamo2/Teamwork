@@ -21,6 +21,10 @@ input:focus {
 .center{
   align-content: center;
 }
+.inline{
+  display: inline-block;
+  vertical-align: top;
+}
 .footer{
   color: white;
   position: absolute;
@@ -57,6 +61,7 @@ input:focus {
 .menuLink, .menuLink:hover, .menuLink:active, .menuLink:visited{
   color: black;
   margin-top: 1%;
+  cursor: pointer;
 }
 .loginButton{
   border: 0px;
@@ -67,6 +72,7 @@ input:focus {
   margin-left: 3px;
   margin-right: 3px;
   min-width: 100px;
+  outline: none;
 }
 .features{
   margin-top: 8%;
@@ -93,6 +99,7 @@ input:focus {
   border-radius: 15px;
   margin-left: 2%;
   min-height: 60vh;
+  box-shadow: 5px 5px 5px 5px;
 }
 .leftSide{
   vertical-align: top;
@@ -107,6 +114,7 @@ input:focus {
   width: 70vw;
   min-height: 70vh;
   border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px;
 }
 @media only screen and (max-device-width: 480px) {
   .clipart{
