@@ -69,6 +69,37 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 router.get('/logout',(req,res)=>{
   req.logout();
   res.redirect('/');
+});
+
+//settings: Update Contact Info
+router.post('/updateProfile',(req,res)=>{
+  var update = {
+    phone: req.body.phone,
+    email: req.body.email,
+    address: req.body.address
+  }
+  
+  Team.findOneAndUpdate({_id: req.user.id},
+                       {$set: {profileInfo: update}},{new:true}, (err,result)=>{
+    if(err) throw err;
+     res.redirect('/dashboard')
+  });
+});
+//settings: Update Password
+router.post('/changePassword',(req,res)=>{
+  var newPass = req.body.password;
+  
+  Team.findOne({_id: req.user.id}).then(function(user){
+    if(newPass === req.body.confirmPassword){
+      user.setPassword(newPass,()=>{
+        user.save();
+        res.redirect('/');
+      })
+    }
+    else{
+      res.send("Passwords Do Not Match");
+    }
+  });
 })
 
 module.exports= router;

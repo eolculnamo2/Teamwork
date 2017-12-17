@@ -1,6 +1,24 @@
 var React = require('react');
 
 var Viewteam = React.createClass({
+  getInitialState: function(){
+    return {profile: ""}
+  },
+  profileFilter: function(){
+    if(this.state.profile.length>0){
+    var profileView = teamVar.filter((user)=>{
+              return user.username == this.state.profile;
+            });
+  
+    
+    return(
+    <div>
+        <h4>{profileView[0].username}</h4>
+          <h4>{profileView[0].profileInfo.phone}</h4>
+        <h4>{profileView[0].profileInfo.email}</h4>
+      </div>)
+        }
+  },
   render: function(){
     return(
     <div>
@@ -26,15 +44,15 @@ var Viewteam = React.createClass({
               
               return(
                 <div>
-              <h4>
+              <h4 className = "menuLink" onClick = {()=>{this.setState({profile: x.username})}}>
                 {x.username}
               </h4>
                   </div>
                 )
             })}
-           
           </div>
           <div className="col-md-4 center">
+            {this.profileFilter(this.state.profile)}
           </div>
         </div>
       </div>

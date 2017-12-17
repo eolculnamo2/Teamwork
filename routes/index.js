@@ -13,16 +13,30 @@ router.get("/",(req,res)=>{
 //finds info from matchig teammates, pushes relevant info into array and sends via ejs
 router.get("/dashboard", (req,res)=>{
   teamInfo.find({teamName: req.user.teamName}, (err, result)=>{
-      var teammates = [];
+    teamInfo.findOne({_id: req.user.id},(err2,result2)=>{
+    console.log(req.user.hash)
+    var profile;
+    var teammates = [];
+    var fill = {
+      phone: "none",
+      email: "none",
+      address: "none"
+    }
+    //fill is a filler for profiles without profile info. Code below checks for profile info
+      result2.profileInfo[0] ? profile = result2.profileInfo[0] : profile = fill;
+
         result.forEach((x)=>{
           teammates.push(x)
-        })
-    console.log(teammates);
-      res.render("dashboard",{
-        team: teammates
         });
+    
+      res.render("dashboard",{
+        team: teammates,
+        profileInfo: profile
+        });
+    
+         });
       });
-    })
+    }) 
 
 
 module.exports = router;
