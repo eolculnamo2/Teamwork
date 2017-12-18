@@ -1,7 +1,8 @@
 var React = require('react');
 var Viewteam = require('./viewteam');
 var Menu = require('./dashmenu');
-var Settings = require('./settings')
+var Settings = require('./settings');
+var ScheduleInterface = require('./schedInterface.jsx');
 
 var Team = React.createClass({
   getInitialState:function(){
@@ -11,7 +12,10 @@ var Team = React.createClass({
     this.setState({team: x});
   },
   viewSchedules: function(){
-    alert("Not yet made");
+    return(
+    <div>
+      <ScheduleInterface selector={this.menuCallback} />
+      </div>)
   },
   addTeamMember: function(){
     return(
