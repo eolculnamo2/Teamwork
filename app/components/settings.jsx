@@ -39,7 +39,7 @@ var Settings = React.createClass({
           </button>
         </form>
          
-        <div className = "inline">
+        <div className = "inline mySettings">
           <h4>
          Contact Number: {profileInfoVar.phone}
          </h4>

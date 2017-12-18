@@ -27,7 +27,7 @@ passport.deserializeUser(Team.deserializeUser());
 router.post('/newTeam', (req, res)=>{
   
   if(req.body.password === req.body.confirmPassword){
-    Team.register(new Team({ username : req.body.username, authority: true, teamName: req.body.teamName }), req.body.password, (err, account)=>{
+    Team.register(new Team({ username : req.body.username, authority: true, teamName: req.body.teamName, profileInfo: [{email: "none",phone:"none",address:"none"}] }), req.body.password, (err, account)=>{
         if (err) {
             console.log(err)
         }
@@ -45,13 +45,11 @@ router.post('/newTeam', (req, res)=>{
 router.post('/addTeamMember', (req, res)=>{
   
   if(req.body.password === req.body.confirmPassword){
-    Team.register(new Team({ username : req.body.username, authority: false, teamName: req.user.teamName }), req.body.password, (err, account)=>{
+    Team.register(new Team({ username : req.body.username, authority: false, teamName: req.user.teamName,profileInfo: [{email: "none",phone:"none",address:"none"}] }), req.body.password, (err, account)=>{
         if (err) {
             console.log(err)
         }
-        passport.authenticate('local')(req, res, ()=>{
-            res.redirect('/dashboard');
-        });
+       res.redirect('/dashboard')
     });
   }
   else{

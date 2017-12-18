@@ -2,7 +2,7 @@ var React = require('react');
 
 var Viewteam = React.createClass({
   getInitialState: function(){
-    return {profile: ""}
+    return {profile: teamVar[0].username}
   },
   profileFilter: function(){
     if(this.state.profile.length>0){
@@ -13,9 +13,15 @@ var Viewteam = React.createClass({
     
     return(
     <div>
+        <h3>Profile Information</h3>
+        <div className="profileBg">
+          <h4 className="underlined inline">Name:</h4>
         <h4>{profileView[0].username}</h4>
-          <h4>{profileView[0].profileInfo.phone}</h4>
-        <h4>{profileView[0].profileInfo.email}</h4>
+           <h4 className="underlined inline">Phone:</h4>
+          <h4>{profileView[0].profileInfo[0].phone}</h4>
+            <h4 className="underlined inline">Address:</h4>
+        <h4>{profileView[0].profileInfo[0].email}</h4>
+        </div>
       </div>)
         }
   },
