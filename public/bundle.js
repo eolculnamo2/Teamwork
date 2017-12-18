@@ -22555,7 +22555,7 @@ var React = __webpack_require__(16);
 
 var Viewteam = React.createClass({displayName: "Viewteam",
   getInitialState: function(){
-    return {profile: ""}
+    return {profile: teamVar[0].username}
   },
   profileFilter: function(){
     if(this.state.profile.length>0){
@@ -22566,9 +22566,15 @@ var Viewteam = React.createClass({displayName: "Viewteam",
     
     return(
     React.createElement("div", null, 
+        React.createElement("h3", null, "Profile Information"), 
+        React.createElement("div", {className: "profileBg"}, 
+          React.createElement("h4", {className: "underlined inline"}, "Name:"), 
         React.createElement("h4", null, profileView[0].username), 
-          React.createElement("h4", null, profileView[0].profileInfo.phone), 
-        React.createElement("h4", null, profileView[0].profileInfo.email)
+           React.createElement("h4", {className: "underlined inline"}, "Phone:"), 
+          React.createElement("h4", null, profileView[0].profileInfo[0].phone), 
+            React.createElement("h4", {className: "underlined inline"}, "Address:"), 
+        React.createElement("h4", null, profileView[0].profileInfo[0].email)
+        )
       ))
         }
   },
@@ -22660,7 +22666,7 @@ var Settings = React.createClass({displayName: "Settings",
           )
         ), 
          
-        React.createElement("div", {className: "inline"}, 
+        React.createElement("div", {className: "inline mySettings"}, 
           React.createElement("h4", null, 
          "Contact Number: ", profileInfoVar.phone
          ), 

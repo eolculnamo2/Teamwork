@@ -18,6 +18,22 @@ input:focus {
     outline:none;
   box-shadow: 5px 5px 2px black;
 }
+.mySettings{
+  border: 2px solid black;
+  background-color: #ffffba;
+  padding: 15px;
+  border-radius: 20px;
+  margin-left: 10%;
+}
+.profileBg{
+  border: 2px solid black;
+  background-color: #ffffba;
+  padding: 15px;
+  border-radius: 20px;
+}
+.underlined{
+  text-decoration: underline;
+}
 .center{
   align-content: center;
 }
@@ -99,7 +115,7 @@ input:focus {
   border-radius: 15px;
   margin-left: 2%;
   min-height: 60vh;
-  box-shadow: 5px 5px 5px 5px;
+  box-shadow: inset 0 0 5px 5px #656668;
 }
 .leftSide{
   vertical-align: top;
@@ -114,7 +130,7 @@ input:focus {
   width: 70vw;
   min-height: 70vh;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 5px;
+  box-shadow: inset 0 0 5px 5px #656668;
 }
 @media only screen and (max-device-width: 480px) {
   .clipart{
