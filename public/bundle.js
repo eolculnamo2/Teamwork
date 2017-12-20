@@ -22713,14 +22713,40 @@ class ScheduleInterface extends React.Component{
     //this sends x as a callback to the parent in teammates.jsx.. Similar to menu
     this.props.selector(x);
   }
-  interface(){
+  week(){
     return(
     React.createElement("div", null, 
-      React.createElement("h4", {className: "inline"}, 
-        "Scheduler"
-        )
-        
-      ))
+         React.createElement("form", {method: "POST", action: "saveSchedule", target: "hiddenFrame"}, 
+        React.createElement("table", null, 
+          React.createElement("tr", null, 
+    React.createElement("th", null, "Sunday"), 
+    React.createElement("th", null, "Monday"), 
+    React.createElement("th", null, "Tuesday"), 
+    React.createElement("th", null, "Wednesday"), 
+    React.createElement("th", null, "Thursday"), 
+    React.createElement("th", null, "Friday"), 
+    React.createElement("th", null, "Saturday")
+  ), 
+ 
+  React.createElement("tr", null, 
+     React.createElement("td", null, React.createElement("input", {name: "sunStart", placeholder: "start", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", placeholder: "end", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "monStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "tueStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "wedStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "thuStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "friStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"})), 
+     React.createElement("td", null, React.createElement("input", {name: "satStart", className: "timeInput"}), " ", React.createElement("input", {name: "sunEnd", className: "timeInput"}))
+  )
+  
+        ), 
+           React.createElement("hr", null), 
+     React.createElement("button", {className: "saveButton", type: "submit"}, 
+    "Save Changes"
+    )
+             )
+       
+          
+   ))
   }
   userList(){
     return(
@@ -22738,7 +22764,11 @@ class ScheduleInterface extends React.Component{
       React.createElement("div", {className: "leftSide"}, 
         this.userList()
       ), 
-        React.createElement("div", {className: "rightSide"}
+        React.createElement("div", {className: "rightSide"}, 
+          React.createElement("center", null, 
+            React.createElement("h2", {className: "title2"}, "Schedule")
+          ), 
+          this.week()
         )
       )
         )
