@@ -32,6 +32,12 @@ th{
   border: 1px solid gray;
   height: 40px;
 }
+.selectedUser{
+  margin-left: 25%;
+}
+.userData{
+  padding: 15px;
+}
 .timeInput{
   width: 100%;
 }
@@ -151,6 +157,7 @@ th{
   vertical-align: top;
   margin-left: 2%;
   display: inline-block;
+  overflow-y: auto;
 }
 .rightSide{
   padding: 20px;
@@ -161,6 +168,7 @@ th{
   min-height: 70vh;
   border-radius: 10px;
   box-shadow: inset 0 0 5px 5px #656668;
+  overflow-y: auto;
 }
 @media only screen and (max-device-width: 480px) {
   .clipart{

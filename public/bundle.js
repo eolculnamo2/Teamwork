@@ -22707,11 +22707,22 @@ var React = __webpack_require__(14);
 class ScheduleInterface extends React.Component{
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+    selectedUser: "",
+    hoursThisWeek: 0
+    }
   };
   changeParentState(x){
     //this sends x as a callback to the parent in teammates.jsx.. Similar to menu
     this.props.selector(x);
+  }
+  userData(){
+  if(this.state.selectedUser.length>0){
+             return (React.createElement("div", null, 
+               React.createElement("h4", null, this.state.selectedUser + "'s", " hours this week: ", this.state.hoursThisWeek), 
+               React.createElement("h4", null, this.state.selectedUser + "'s", " preferred number of hours: 25")
+               ))
+               }
   }
   week(){
     return(
@@ -22743,9 +22754,15 @@ class ScheduleInterface extends React.Component{
      React.createElement("button", {className: "saveButton", type: "submit"}, 
     "Save Changes"
     )
-             )
-       
-          
+             ), 
+       React.createElement("div", {className: "selectedUser"}, 
+        React.createElement("h1", {className: "inline"}, 
+          this.state.selectedUser
+        ), 
+         React.createElement("div", {className: "inline userData"}, 
+           this.userData()
+         )
+        )
    ))
   }
   userList(){
@@ -22753,7 +22770,16 @@ class ScheduleInterface extends React.Component{
       React.createElement("div", null, 
        React.createElement("h3", {className: "dashboardTitle"}, "Teamleader Dashboard"), 
         React.createElement("div", {className: "menu"}, 
-       React.createElement("h4", {className: "menuLink", onClick: ()=>{this.changeParentState("addTeamMember")}}, "Back")
+       React.createElement("h4", {className: "menuLink", onClick: ()=>{this.changeParentState("addTeamMember")}}, "Back"), 
+          React.createElement("hr", null), 
+          teamVar.map((x,i)=>{
+          return(
+          React.createElement("div", null, 
+              React.createElement("h4", {key: "user"+i.toString(), className: "menuLink", onClick: ()=>{this.setState({selectedUser: x.username})}}, x.username)
+              )
+          )
+          })  
+            
        )
       ))
   }
