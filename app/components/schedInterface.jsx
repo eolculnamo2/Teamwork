@@ -3,11 +3,22 @@ var React = require('react');
 class ScheduleInterface extends React.Component{
   constructor(){
     super()
-    this.state = {}
+    this.state = {
+    selectedUser: "",
+    hoursThisWeek: 0
+    }
   };
   changeParentState(x){
     //this sends x as a callback to the parent in teammates.jsx.. Similar to menu
     this.props.selector(x);
+  }
+  userData(){
+  if(this.state.selectedUser.length>0){
+             return (<div>
+               <h4>{this.state.selectedUser + "'s"} hours this week: {this.state.hoursThisWeek}</h4>
+               <h4>{this.state.selectedUser + "'s"} preferred number of hours: 25</h4>
+               </div>)
+               }
   }
   week(){
     return(
@@ -40,8 +51,14 @@ class ScheduleInterface extends React.Component{
     Save Changes
     </button>
              </form>
-       
-          
+       <div className="selectedUser">
+        <h1 className="inline">
+          {this.state.selectedUser}
+        </h1>
+         <div className="inline userData">
+           {this.userData()}
+         </div>
+        </div>          
    </div>)
   }
   userList(){
@@ -50,6 +67,15 @@ class ScheduleInterface extends React.Component{
        <h3 className = "dashboardTitle">Teamleader Dashboard</h3>
         <div className="menu">
        <h4 className="menuLink" onClick={()=>{this.changeParentState("addTeamMember")}}>Back</h4>
+          <hr/>
+          {teamVar.map((x,i)=>{
+          return(
+          <div>
+              <h4 key={"user"+i.toString()} className="menuLink" onClick = {()=>{this.setState({selectedUser: x.username})}}>{x.username}</h4>
+              </div>
+          )
+          })  
+            }
        </div>
       </div>)
   }
