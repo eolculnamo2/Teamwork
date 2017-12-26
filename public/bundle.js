@@ -22730,13 +22730,13 @@ class ScheduleInterface extends React.Component{
          React.createElement("form", {method: "POST", action: "saveSchedule", target: "hiddenFrame"}, 
         React.createElement("table", null, 
           React.createElement("tr", null, 
-    React.createElement("th", null, "Sunday"), 
-    React.createElement("th", null, "Monday"), 
-    React.createElement("th", null, "Tuesday"), 
-    React.createElement("th", null, "Wednesday"), 
-    React.createElement("th", null, "Thursday"), 
-    React.createElement("th", null, "Friday"), 
-    React.createElement("th", null, "Saturday")
+    React.createElement("th", null, "Sunday(", dateRange.days[0], "th)"), 
+    React.createElement("th", null, "Monday(", dateRange.days[1], "th)"), 
+    React.createElement("th", null, "Tuesday(", dateRange.days[2], "th)"), 
+    React.createElement("th", null, "Wednesday(", dateRange.days[3], "th)"), 
+    React.createElement("th", null, "Thursday(", dateRange.days[4], "th)"), 
+    React.createElement("th", null, "Friday(", dateRange.days[5], "th)"), 
+    React.createElement("th", null, "Saturday(", dateRange.days[6], "th)")
   ), 
  
   React.createElement("tr", null, 
@@ -22791,8 +22791,10 @@ class ScheduleInterface extends React.Component{
         this.userList()
       ), 
         React.createElement("div", {className: "rightSide"}, 
-          React.createElement("center", null, 
-            React.createElement("h2", {className: "title2"}, "Schedule")
+          React.createElement("div", {className: "dates"}, 
+            React.createElement("h2", {className: "title2"}, "Schedule"), 
+            React.createElement("h3", {className: "inline"}, dateRange.start[1]+"/"+dateRange.start[0]+"th - "+dateRange.end[1]+"/"+dateRange.end[0]+"th")
+
           ), 
           this.week()
         )

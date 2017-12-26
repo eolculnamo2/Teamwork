@@ -22,7 +22,9 @@ var daysInMonth = monthObject[month];
 
 var sunday = today-weekday;
 var saturday = today + (6-weekday)
-var sunMonth, satMonth = month;
+var sunMonth= month;
+var satMonth = month;
+
 
 if(saturday > daysInMonth){
  saturday = saturday - daysInMonth;
@@ -34,7 +36,28 @@ if(sunday <= 0){
   sunday = monthObject[sunMonth]+sunday; 
 }
 
+var dayArray=[];
+ var x =1;
+for(var i=0; i<7; i++){
+ 
+  if(sunday+i>monthObject[sunMonth]){
+    dayArray.push(x);
+    x=x+1;
+  }
+  else{
+ dayArray.push(sunday+i);
+  }
+}
 var dateRange = {
   start: [sunday, sunMonth],
-  end: [saturday, satMonth]
+  end: [saturday, satMonth],
+  days: dayArray
+}
+
+
+function nextWeek(){ 
+//will jump to next week;
+}
+function lastWeek(){
+// will go back one week;
 }
