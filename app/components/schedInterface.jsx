@@ -26,13 +26,13 @@ class ScheduleInterface extends React.Component{
          <form method="POST" action="saveSchedule" target="hiddenFrame">
         <table>
           <tr>
-    <th>Sunday</th>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
+    <th>Sunday({dateRange.days[0]}th)</th>
+    <th>Monday({dateRange.days[1]}th)</th>
+    <th>Tuesday({dateRange.days[2]}th)</th>
+    <th>Wednesday({dateRange.days[3]}th)</th>
+    <th>Thursday({dateRange.days[4]}th)</th>
+    <th>Friday({dateRange.days[5]}th)</th>
+    <th>Saturday({dateRange.days[6]}th)</th>
   </tr>
  
   <tr>
@@ -87,9 +87,11 @@ class ScheduleInterface extends React.Component{
         {this.userList()}
       </div>
         <div className="rightSide">
-          <center>
+          <div className="dates">
             <h2 className="title2">Schedule</h2>
-          </center>
+            <h3 className="inline">{dateRange.start[1]+"/"+dateRange.start[0]+"th - "+dateRange.end[1]+"/"+dateRange.end[0]+"th"}</h3>
+
+          </div>
           {this.week()}
         </div>
       </div>

@@ -32,6 +32,10 @@ th{
   border: 1px solid gray;
   height: 40px;
 }
+.dates{
+     display: flex;
+    justify-content: space-between;
+}
 .selectedUser{
   margin-left: 25%;
 }
@@ -92,6 +96,7 @@ th{
 }
 .title2{
   font-family: 'Raleway', sans-serif;
+  display: inline;
 }
 .titleNav{
   color: black;
