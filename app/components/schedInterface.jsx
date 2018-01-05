@@ -5,9 +5,43 @@ class ScheduleInterface extends React.Component{
     super()
     this.state = {
     selectedUser: "",
-    hoursThisWeek: 0
+    hoursThisWeek: 0,
+    weekInfo: {
+      sunday:[],
+      saturday:[],
+      days: []
     }
-  };
+    }
+  }
+  componentDidMount(){
+   this.setState({
+    weekInfo: {
+    sunday: dateRange.start,
+    saturday: dateRange.end,
+    days: dateRange.days
+       }
+   }) 
+  }
+  updateDays(){
+    nextWeek()
+    this.setState({
+    weekInfo: {
+    sunday: dateRange.start,
+    saturday: dateRange.end,
+    days: dateRange.days
+       }
+   }) 
+  }
+  updateBackDays(){
+    lastWeek()
+    this.setState({
+    weekInfo: {
+    sunday: dateRange.start,
+    saturday: dateRange.end,
+    days: dateRange.days
+       }
+   }) 
+  }
   changeParentState(x){
     //this sends x as a callback to the parent in teammates.jsx.. Similar to menu
     this.props.selector(x);
@@ -50,6 +84,13 @@ class ScheduleInterface extends React.Component{
      <button className = "saveButton" type = "submit">
     Save Changes
     </button>
+           <button onClick = {this.updateBackDays.bind(this)} className = "saveButton" type = "button">
+    Last Week
+    </button>
+           <button onClick = {this.updateDays.bind(this)} className = "saveButton" type = "button">
+    Next Week
+    </button>
+           
              </form>
        <div className="selectedUser">
         <h1 className="inline">
